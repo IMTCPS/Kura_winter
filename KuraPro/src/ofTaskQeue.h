@@ -20,6 +20,7 @@ public:
 	template<class Ret,class F,class... Args>
 	std::promise<Ret> pushTask(F&& func_name,Args&&... args);
 
+	//クラス単位での並列処理をする場合はこちらで指定してください(条件としてofTaskBaseを継承しているクラスです)
 	void pushTask(ofTaskBase*);
 
 	//このクラスが管理している全てのスレッドを停止します
@@ -48,10 +49,16 @@ private:
 
 	//セマフォのカウンタを引数の数値分、減らします(値が最小値を超える場合は強制的に最小値になります)
 	void decreaseSemaphore(int size);
+
+	//listからデータを取得します(要素がなかった場合は追加されるまで待ちます)
+	ofTaskBase* pop();
+
+	//listへ要素を追加します
+	void push(ofTaskBase*);
 private:
 	std::list<ofTaskBase*> mQeue;
 	//以下二つはセマフォにするための変数(listの要素数をセマフォで管理をします)
-	std::mutex mQeueLock;
+	std::mutex mQeueLock,mSemaphoreLock;
 	int mCounter;
 	//実際に実行するスレッド群
 	std::vector<std::thread> mThreads;
