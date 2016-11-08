@@ -85,3 +85,10 @@ int ofImageProc::Hough(ofxCvGrayscaleImage depth) {
 	}
 	return temp.size();
 }
+void ofImageProc::resetOutTable() {
+	memset(mAllocTable,sizeof(CIRCLE_INFO),mAllocTableSize);
+}
+bool ofImageProc::judgeTable(int target_id, HSV color) {
+	TABLE* t = &mPlayerTable[target_id];
+	return (t->LUT[0][color.h] && t->LUT[1][color.s] && t->LUT[2][color.v]);
+}
