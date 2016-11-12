@@ -31,12 +31,6 @@
     <ClCompile Include="src\ofKinect.cpp">
       <Filter>src\kinect</Filter>
     </ClCompile>
-    <ClCompile Include="src\ofImageProc.cpp">
-      <Filter>src\image_proc</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofTaskQeue.cpp">
-      <Filter>src\thread</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -131,12 +125,6 @@
     </Filter>
     <Filter Include="src\kinect">
       <UniqueIdentifier>{8697802d-27af-4447-894b-c7f1a338db68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\image_proc">
-      <UniqueIdentifier>{b37ca65b-8a3c-4086-a5dc-8726ed6df2aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\thread">
-      <UniqueIdentifier>{681d2f76-c2a3-480e-a7f6-04db320fba6f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -652,12 +640,6 @@
     </ClInclude>
     <ClInclude Include="src\ofKinect.h">
       <Filter>src\kinect</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofImageProc.h">
-      <Filter>src\image_proc</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofTaskQeue.h">
-      <Filter>src\thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -220,9 +220,7 @@ C:\Users\葉月\Documents\CODES\OpenFrameworks\of_v0.9.3_vs_release\addons\ofxOp
     <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
-    <ClCompile Include="src\ofImageProc.cpp" />
     <ClCompile Include="src\ofKinect.cpp" />
-    <ClCompile Include="src\ofTaskQeue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\calib3d.hpp" />
@@ -395,9 +393,7 @@ C:\Users\葉月\Documents\CODES\OpenFrameworks\of_v0.9.3_vs_release\addons\ofxOp
     <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h" />
     <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h" />
     <ClInclude Include="src\ofApp.h" />
-    <ClInclude Include="src\ofImageProc.h" />
     <ClInclude Include="src\ofKinect.h" />
-    <ClInclude Include="src\ofTaskQeue.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
