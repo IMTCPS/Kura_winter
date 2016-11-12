@@ -92,3 +92,20 @@ bool ofImageProc::judgeTable(int target_id, HSV color) {
 	TABLE* t = &mPlayerTable[target_id];
 	return (t->LUT[0][color.h] && t->LUT[1][color.s] && t->LUT[2][color.v]);
 }
+
+CIRCLE_INFO* ofImageProc::update(ofxCvColorImage color, ofxCvGrayscaleImage depth, int* ret_size) {
+	if (!ret_size)return NULL;
+	//メンバ変数の更新
+	resetOutTable();
+	setDepth(depth);
+	setColor(color);
+	//Hough変換
+	ofxCvGrayscaleImage diff;
+	diff.absDiff(mDepthBuf[0], mDepthBuf[1]);
+	*ret_size = Hough(diff);
+	//各データの距離および色を縮小して取得
+	int max = *ret_size;
+	for (int i = 0; i < max; i++) {
+		mAllocTable[i].
+	}
+}

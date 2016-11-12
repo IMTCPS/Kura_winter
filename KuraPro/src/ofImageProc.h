@@ -49,7 +49,7 @@ public:
 	~ofImageProc();
 
 	//処理を実行(戻り値は検出したボールの情報群です)
-	CIRCLE_INFO* update(ofImage color,ofImage depth,int* ret_size);
+	CIRCLE_INFO* update(ofxCvColorImage color,ofxCvGrayscaleImage depth,int* ret_size);
 private:
 	//デフォルトコンストラクタは禁止
 	ofImageProc();
