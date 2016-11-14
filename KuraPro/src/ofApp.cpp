@@ -1,5 +1,9 @@
 #include "ofApp.h"
 
+#define SEQUENCE_TITLE		0x00000000
+#define SEQUENCE_GAME		0x00000001
+#define SEQUENCE_RESULT		0x00000002
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 	//TODO:ここで各自の初期化関数を呼び出してください
@@ -7,7 +11,18 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	//TODO:ここではSequence処理をします
+	//ここではSequence処理をします(関数ポインタでデータを管理した方が高速だが、初心者には見づらいのでこちらの方式を用います)
+	switch (mType) {
+		case SEQUENCE_TITLE:
+			//TODO:タイトル画面
+			break;
+		case SEQUENCE_GAME:
+			//TODO:ゲーム中の画面
+			break;
+		case SEQUENCE_RESULT:
+			//TODO:結果画面
+			break;
+	}
 }
 
 //--------------------------------------------------------------
