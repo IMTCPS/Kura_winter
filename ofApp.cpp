@@ -1,5 +1,4 @@
 #include "ofApp.h"
-#include"ofKinect.h"
 #include"Functions.h"
 
 ofApp::ofApp() {}
@@ -17,16 +16,20 @@ void ofApp::setup(){
 //	ofSetVerticalSync(false);
 //	ofSetFrameRate(0);
 //	ofSetFullscreen(true);
-	m_IsOpenedKinect = ofKinect::Open();
 
 	//アニメーションの登録(現在これで一個)
 	ofAnimation* anim = new ofAnimation();
-	//関数の指定
+	ofAnimation* anim2 = new ofAnimation();
+	//関数の指定(下３行のうち上ひとつと残りは同義なのだが、なぜかこうしないと登録されない)
 	anim->setDrawFunc(drawBall, &m_Manager);
+	
+	anim2->setDrawFunc(drawBack, &m_Manager);
 
 	anim->setUpdateFunc(REGIST_FUNC(initSnowBall));
 	anim->setUpdateFunc(REGIST_FUNC(rollingSnowBall));
 	anim->setUpdateFunc(REGIST_FUNC(breakingSnowBall));
+
+	anim2->setUpdateFunc(REGIST_FUNC(BackGround));
 
 	//ちょっとサンプルとしてウィンドウのサイズを登録
 	anim->push("width", ofGetWidth());
@@ -36,11 +39,12 @@ void ofApp::setup(){
 	m_AnimationList.push_back(anim);
 
 	ofBackground(0, 0, 0);
-	cout << "animation object:" << m_AnimationList.size() << endl;
+	cout << "animation object:" << m_AnimationList.size() << endl;	//"cout"=オブジェクト.coutを通じ,文字列"Animation object:"を出力."endl"は改行.
 
 	//ここでリソースの読み込みを全て行う
-	m_Manager.setImage("sample", "snowman_release_2.png");
+	m_Manager.setImage("snowman2", "snowman_release_2.png");
 	m_Manager.setImage("ball", "snowball.png");
+	m_Manager.setImage("back","background.png");
 	stringstream path(""), key("");
 	for (int i = 0; i < 8; i++) {
 		path << "break_ball/" << i << ".png";
@@ -48,13 +52,13 @@ void ofApp::setup(){
 		m_Manager.setImage(key.str(), path.str());
 		path.str(""); key.str("");
 	}
+
+//	m_Manager.setImage("snowman2", "snowman_release_2.png");
+//	m_Manager.setImage("back", "background.png");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	if (!m_IsOpenedKinect) {
-		m_IsOpenedKinect = ofKinect::Open();
-	}
 	list<ofAnimation*>::iterator it = m_AnimationList.begin(), end = m_AnimationList.end();
 	while (it != end) {
 		(*it)->update();
